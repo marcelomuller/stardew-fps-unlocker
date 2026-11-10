@@ -1,0 +1,9 @@
+{
+  "Name": "FPS Unlocker",
+  "Author": "Marcelo",
+  "Version": "1.1.0",
+  "Description": "Renders above 60 FPS with interpolated movement while the game logic keeps its normal 60 ticks per second.",
+  "UniqueID": "Marcelo.FpsUnlocker",
+  "EntryDll": "FpsUnlocker.dll",
+  "MinimumApiVersion": "4.0.0"
+}

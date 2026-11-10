@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>FpsUnlocker</AssemblyName>
+    <RootNamespace>FpsUnlocker</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <GameDir Condition="'$(GameDir)' == ''">/mnt/d/SteamLibrary/steamapps/common/Stardew Valley</GameDir>
+    <ModDir>$(GameDir)/Mods/FpsUnlocker</ModDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="$(GameDir)/Stardew Valley.dll" Private="false" />
+    <Reference Include="$(GameDir)/MonoGame.Framework.dll" Private="false" />
+    <Reference Include="$(GameDir)/xTile.dll" Private="false" />
+    <Reference Include="$(GameDir)/StardewModdingAPI.dll" Private="false" />
+    <Reference Include="$(GameDir)/smapi-internal/0Harmony.dll" Private="false" />
+    <Reference Include="$(GameDir)/smapi-internal/SMAPI.Toolkit.CoreInterfaces.dll" Private="false" />
+  </ItemGroup>
+
+  <Target Name="DeployToGame" AfterTargets="Build" Condition="'$(Deploy)' == 'true'">
+    <Copy SourceFiles="$(TargetPath);manifest.json" DestinationFolder="$(ModDir)" />
+  </Target>
+
+</Project>
